@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AETHERIS — Estética Avanzada & Grooming Clínico</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+      <ul class="navbar-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="servicios.html">Tratamientos</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+        <li><a href="reservas.html" class="nav-cta">Agendar Cita</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="servicios.html">Tratamientos</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="reservas.html" class="nav-cta">Agendar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero py-16 px-6">
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">Estética de <span class="highlight">Precisión</span> para Quienes Exigen Excelencia</h1>
+        <p class="hero-subtitle">En AETHERIS fusionamos dermatología clínica avanzada con tecnología de última generación para transformar tu piel y elevar tu imagen personal con resultados visibles desde la primera sesión.</p>
+
+        <form class="diagnosis-form" id="diagnosis-form">
+          <input type="email" placeholder="Tu correo electrónico" required>
+          <button type="submit">Diagnóstico Gratis</button>
+        </form>
+        <div class="diagnosis-feedback" id="diagnosis-feedback"></div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
+             alt="Interior de clínica estética AETHERIS con tecnología avanzada">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES GRID ===== -->
+  <section class="section">
+    <h2 class="section-title">¿Por Qué Elegir AETHERIS?</h2>
+    <p class="section-subtitle">Tres pilares que definen nuestra propuesta clínica: innovación tecnológica, seguridad certificada y resultados medibles.</p>
+
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="card feature-card rounded-xl transition-all duration-200">
+        <div class="card-icon">
+          <i data-lucide="sparkles" style="width:22px;height:22px;"></i>
+        </div>
+        <h3 class="card-title">Tecnología Estética de Vanguardia</h3>
+        <p class="card-desc">Utilizamos sistemas de luz pulsada intensa, radiofrecuencia fraccional y láser de diodo de última generación para tratamientos precisos con recuperación mínima.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="card feature-card rounded-xl transition-all duration-200">
+        <div class="card-icon">
+          <i data-lucide="shield-check" style="width:22px;height:22px;"></i>
+        </div>
+        <h3 class="card-title">Seguridad Clínica Certificada</h3>
+        <p class="card-desc">Cada procedimiento sigue protocolos médicos estrictos supervisados por especialistas certificados, garantizando bioseguridad y trazabilidad en cada sesión.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="card feature-card rounded-xl transition-all duration-200">
+        <div class="card-icon">
+          <i data-lucide="cpu" style="width:22px;height:22px;"></i>
+        </div>
+        <h3 class="card-title">Diagnóstico Personalizado con IA</h3>
+        <p class="card-desc">Nuestro sistema de análisis facial inteligente evalúa la condición de tu piel en tiempo real para diseñar un plan de tratamiento adaptado a tu biotipo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PREVIEW: TRATAMIENTOS ESTRELLA ===== -->
+  <section class="section py-16 px-6">
+    <h2 class="section-title">Tratamientos Estrella</h2>
+    <p class="section-subtitle">Descubre nuestros procedimientos más solicitados, diseñados para resultados clínicos visibles y duraderos.</p>
+
+    <div class="preview-grid">
+      <!-- Preview 1 -->
+      <div class="service-card">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+             alt="Tratamiento facial clínico con tecnología avanzada">
+        <div class="service-card-body">
+          <span class="service-card-category">Facial Clínico</span>
+          <h3 class="service-card-title">HydraFacial Clínico Profundo</h3>
+          <div class="service-card-meta">
+            <span>⏱ 60 min</span>
+            <span>★ Más solicitado</span>
+          </div>
+          <p class="service-card-price">$220.000 COP</p>
+          <a href="reservas.html?servicio=HydraFacial%20Clínico%20Profundo" class="btn-primary">Agendar</a>
+        </div>
+      </div>
+
+      <!-- Preview 2 -->
+      <div class="service-card">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+             alt="Sesión de grooming masculino premium">
+        <div class="service-card-body">
+          <span class="service-card-category">Grooming VIP</span>
+          <h3 class="service-card-title">Grooming Ejecutivo Integral</h3>
+          <div class="service-card-meta">
+            <span>⏱ 45 min</span>
+            <span>★ Premium</span>
+          </div>
+          <p class="service-card-price">$180.000 COP</p>
+          <a href="reservas.html?servicio=Grooming%20Ejecutivo%20Integral" class="btn-primary">Agendar</a>
+        </div>
+      </div>
+
+      <!-- Preview 3 -->
+      <div class="service-card">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80"
+             alt="Espacio de bienestar y tecnología spa AETHERIS">
+        <div class="service-card-body">
+          <span class="service-card-category">Capilar</span>
+          <h3 class="service-card-title">Terapia Capilar con Láser</h3>
+          <div class="service-card-meta">
+            <span>⏱ 50 min</span>
+            <span>★ Innovador</span>
+          </div>
+          <p class="service-card-price">$280.000 COP</p>
+          <a href="reservas.html?servicio=Terapia%20Capilar%20con%20Láser" class="btn-primary">Agendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-cta">
+      <a href="servicios.html" class="btn-outline">Ver Todos los Tratamientos →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+        <p class="footer-brand-desc">Centro de estética dermatológica, cuidado facial tecnológico y grooming clínico de lujo en Barranquilla. Resultados visibles, seguridad garantizada.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Tratamientos</a></li>
+          <li><a href="reservas.html">Agendar Cita</a></li>
+        </ul>
+      </div>
+
+      <!-- Schedule -->
+      <div class="footer-schedule">
+        <h4 class="footer-heading">Horarios</h4>
+        <p>Lunes a Viernes: 8:00 AM – 7:00 PM</p>
+        <p>Sábados: 9:00 AM – 3:00 PM</p>
+        <p>Domingos: Cerrado</p>
+        <p style="margin-top: 0.75rem; color: var(--accent-soft);">📍 Barranquilla, Colombia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 AETHERIS — Estética Avanzada & Grooming Clínico. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>

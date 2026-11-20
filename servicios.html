@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tratamientos — AETHERIS</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+      <ul class="navbar-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html" class="active">Tratamientos</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+        <li><a href="reservas.html" class="nav-cta">Agendar Cita</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html" class="active">Tratamientos</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="reservas.html" class="nav-cta">Agendar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="page-header">
+    <h1>Catálogo de Tratamientos</h1>
+    <p>Explora nuestra gama completa de procedimientos clínicos, faciales y de grooming de lujo. Cada tratamiento está diseñado con protocolos médicos de precisión.</p>
+  </div>
+
+  <!-- ===== FILTER BAR + SERVICES GRID ===== -->
+  <section class="section py-16 px-6" style="padding-top: 1rem;">
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="facial">Facial Clínico</button>
+      <button class="filter-btn" data-filter="grooming">Grooming VIP</button>
+      <button class="filter-btn" data-filter="capilar">Capilar</button>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Service 1 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="facial">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+             alt="HydraFacial clínico profundo con tecnología avanzada">
+        <div class="service-card-body">
+          <span class="service-card-category">Facial Clínico</span>
+          <h3 class="service-card-title">HydraFacial Clínico Profundo</h3>
+          <div class="service-card-meta">
+            <span>⏱ 60 min</span>
+          </div>
+          <p class="service-card-price">$220.000 COP</p>
+          <a href="reservas.html?servicio=HydraFacial%20Clínico%20Profundo" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="facial">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80"
+             alt="Peeling químico dermatológico controlado">
+        <div class="service-card-body">
+          <span class="service-card-category">Facial Clínico</span>
+          <h3 class="service-card-title">Peeling Químico Controlado</h3>
+          <div class="service-card-meta">
+            <span>⏱ 45 min</span>
+          </div>
+          <p class="service-card-price">$180.000 COP</p>
+          <a href="reservas.html?servicio=Peeling%20Químico%20Controlado" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="grooming">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+             alt="Grooming ejecutivo integral masculino">
+        <div class="service-card-body">
+          <span class="service-card-category">Grooming VIP</span>
+          <h3 class="service-card-title">Grooming Ejecutivo Integral</h3>
+          <div class="service-card-meta">
+            <span>⏱ 45 min</span>
+          </div>
+          <p class="service-card-price">$180.000 COP</p>
+          <a href="reservas.html?servicio=Grooming%20Ejecutivo%20Integral" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="grooming">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+             alt="Diseño de barba con perfilado láser">
+        <div class="service-card-body">
+          <span class="service-card-category">Grooming VIP</span>
+          <h3 class="service-card-title">Diseño de Barba & Perfilado Láser</h3>
+          <div class="service-card-meta">
+            <span>⏱ 35 min</span>
+          </div>
+          <p class="service-card-price">$120.000 COP</p>
+          <a href="reservas.html?servicio=Diseño%20de%20Barba%20%26%20Perfilado%20Láser" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="capilar">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80"
+             alt="Terapia capilar con láser de baja intensidad">
+        <div class="service-card-body">
+          <span class="service-card-category">Capilar</span>
+          <h3 class="service-card-title">Terapia Capilar con Láser</h3>
+          <div class="service-card-meta">
+            <span>⏱ 50 min</span>
+          </div>
+          <p class="service-card-price">$280.000 COP</p>
+          <a href="reservas.html?servicio=Terapia%20Capilar%20con%20Láser" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card rounded-xl transition-all duration-200" data-category="capilar">
+        <img class="service-card-image"
+             src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80"
+             alt="Mesoterapia capilar con micronutrientes">
+        <div class="service-card-body">
+          <span class="service-card-category">Capilar</span>
+          <h3 class="service-card-title">Mesoterapia Capilar Regenerativa</h3>
+          <div class="service-card-meta">
+            <span>⏱ 40 min</span>
+          </div>
+          <p class="service-card-price">$250.000 COP</p>
+          <a href="reservas.html?servicio=Mesoterapia%20Capilar%20Regenerativa" class="btn-primary">Agendar Cita</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+        <p class="footer-brand-desc">Centro de estética dermatológica, cuidado facial tecnológico y grooming clínico de lujo en Barranquilla. Resultados visibles, seguridad garantizada.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Tratamientos</a></li>
+          <li><a href="reservas.html">Agendar Cita</a></li>
+        </ul>
+      </div>
+
+      <!-- Schedule -->
+      <div class="footer-schedule">
+        <h4 class="footer-heading">Horarios</h4>
+        <p>Lunes a Viernes: 8:00 AM – 7:00 PM</p>
+        <p>Sábados: 9:00 AM – 3:00 PM</p>
+        <p>Domingos: Cerrado</p>
+        <p style="margin-top: 0.75rem; color: var(--accent-soft);">📍 Barranquilla, Colombia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 AETHERIS — Estética Avanzada & Grooming Clínico. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>

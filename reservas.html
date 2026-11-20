@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas — AETHERIS</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+      <ul class="navbar-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Tratamientos</a></li>
+        <li><a href="reservas.html" class="active">Reservas</a></li>
+        <li><a href="reservas.html" class="nav-cta">Agendar Cita</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Tratamientos</a>
+      <a href="reservas.html" class="active">Reservas</a>
+      <a href="reservas.html" class="nav-cta">Agendar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <div class="page-header">
+    <h1>Agenda Tu Cita</h1>
+    <p>Reserva tu sesión con uno de nuestros especialistas. Completa el formulario y te confirmaremos tu cita al instante.</p>
+  </div>
+
+  <!-- ===== BOOKING FORM ===== -->
+  <section class="section py-16 px-6" style="padding-top: 1rem;">
+    <div class="booking-wrapper">
+
+      <!-- Booking Form Card -->
+      <div class="booking-card rounded-xl transition-all duration-200" id="booking-form-card">
+        <h2>Información de la Cita</h2>
+        <p class="form-subtitle">Todos los campos son obligatorios para confirmar tu reserva.</p>
+
+        <form id="booking-form">
+          <div class="form-group">
+            <label for="client-name">Nombre Completo</label>
+            <input type="text" id="client-name" placeholder="Ej. María Fernanda López" required>
+          </div>
+
+          <div class="form-group">
+            <label for="client-whatsapp">WhatsApp</label>
+            <input type="tel" id="client-whatsapp" placeholder="Ej. +57 300 123 4567" required>
+          </div>
+
+          <div class="form-group">
+            <label for="treatment-select">Tratamiento</label>
+            <select id="treatment-select" required>
+              <option value="">Selecciona un tratamiento</option>
+              <option value="HydraFacial Clínico Profundo">HydraFacial Clínico Profundo — $220.000 COP</option>
+              <option value="Peeling Químico Controlado">Peeling Químico Controlado — $180.000 COP</option>
+              <option value="Grooming Ejecutivo Integral">Grooming Ejecutivo Integral — $180.000 COP</option>
+              <option value="Diseño de Barba & Perfilado Láser">Diseño de Barba & Perfilado Láser — $120.000 COP</option>
+              <option value="Terapia Capilar con Láser">Terapia Capilar con Láser — $280.000 COP</option>
+              <option value="Mesoterapia Capilar Regenerativa">Mesoterapia Capilar Regenerativa — $250.000 COP</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="specialist-select">Especialista</label>
+            <select id="specialist-select" required>
+              <option value="">Selecciona un especialista</option>
+              <option value="Dra. Valentina Ríos">Dra. Valentina Ríos</option>
+              <option value="Dr. Mateo Vargas">Dr. Mateo Vargas</option>
+              <option value="Andrés Salazar">Andrés Salazar</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-date">Fecha</label>
+              <input type="date" id="booking-date" required>
+            </div>
+            <div class="form-group">
+              <label for="booking-time">Hora</label>
+              <input type="time" id="booking-time" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary booking-submit">Confirmar Reserva</button>
+        </form>
+      </div>
+
+      <!-- Confirmation Card (Hidden by default) -->
+      <div class="confirmation-card" id="confirmation-card">
+        <div class="check-icon">
+          <i data-lucide="check-circle" style="width:28px;height:28px;"></i>
+        </div>
+        <h3>¡Reserva Confirmada!</h3>
+        <p class="confirmation-subtitle">Tu cita ha sido agendada exitosamente. Te enviaremos la confirmación por WhatsApp.</p>
+
+        <div class="confirmation-details">
+          <div class="detail-row">
+            <span class="detail-label">Paciente</span>
+            <span class="detail-value" id="conf-name">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Tratamiento</span>
+            <span class="detail-value" id="conf-treatment">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Especialista</span>
+            <span class="detail-value" id="conf-specialist">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Fecha</span>
+            <span class="detail-value" id="conf-date">—</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Hora</span>
+            <span class="detail-value" id="conf-time">—</span>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn-outline">Volver al Inicio</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
+        <p class="footer-brand-desc">Centro de estética dermatológica, cuidado facial tecnológico y grooming clínico de lujo en Barranquilla. Resultados visibles, seguridad garantizada.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Tratamientos</a></li>
+          <li><a href="reservas.html">Agendar Cita</a></li>
+        </ul>
+      </div>
+
+      <!-- Schedule -->
+      <div class="footer-schedule">
+        <h4 class="footer-heading">Horarios</h4>
+        <p>Lunes a Viernes: 8:00 AM – 7:00 PM</p>
+        <p>Sábados: 9:00 AM – 3:00 PM</p>
+        <p>Domingos: Cerrado</p>
+        <p style="margin-top: 0.75rem; color: var(--accent-soft);">📍 Barranquilla, Colombia</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 AETHERIS — Estética Avanzada & Grooming Clínico. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
