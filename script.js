@@ -3,6 +3,13 @@
    Main JavaScript
    ======================================== */
 
+import {
+  validateEmail,
+  validateBooking,
+  formatBookingDate,
+  getLocalTodayISO
+} from './validation.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Mobile Hamburger Menu ----
@@ -11,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
     // Close menu when clicking a link
@@ -20,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
         mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -40,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
+      if (!validateEmail(email)) {
         diagnosisFeedback.textContent = 'Ingresa un correo electrónico válido.';
         diagnosisFeedback.className = 'diagnosis-feedback error';
         return;
@@ -98,8 +106,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ---- Reservas: Form Validation & Confirmation ----
+  // ---- Reservas: Minimum Date & Form Validation + Confirmation ----
+  const bookingDateInput = document.getElementById('booking-date');
+  const todayISO = getLocalTodayISO();
+  if (bookingDateInput) {
+    bookingDateInput.min = todayISO;
+  }
+
   const bookingForm = document.getElementById('booking-form');
+  const bookingFormCard = document.getElementById('booking-form-card');
+  const bookingFeedback = document.getElementById('booking-feedback');
   const confirmationCard = document.getElementById('confirmation-card');
 
   if (bookingForm && confirmationCard) {
@@ -113,27 +129,42 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = document.getElementById('booking-date').value;
       const time = document.getElementById('booking-time').value;
 
-      // Validation
-      if (!name || !whatsapp || !treatment.value || !specialist.value || !date || !time) {
-        alert('Por favor, completa todos los campos para agendar tu cita.');
+      const result = validateBooking({
+        name,
+        whatsapp,
+        treatment: treatment.value,
+        specialist: specialist.value,
+        date,
+        time,
+        todayISO: getLocalTodayISO()
+      });
+
+      if (!result.valid) {
+        if (bookingFeedback) {
+          bookingFeedback.textContent = result.error;
+          bookingFeedback.className = 'booking-feedback error';
+        }
         return;
       }
 
-      const phoneRegex = /^[0-9+\s()-]{7,15}$/;
-      if (!phoneRegex.test(whatsapp)) {
-        alert('Ingresa un número de WhatsApp válido.');
-        return;
+      if (bookingFeedback) {
+        bookingFeedback.textContent = '';
+        bookingFeedback.className = 'booking-feedback';
       }
 
       // Populate confirmation card
       document.getElementById('conf-name').textContent = name;
       document.getElementById('conf-treatment').textContent = treatment.options[treatment.selectedIndex].text;
       document.getElementById('conf-specialist').textContent = specialist.options[specialist.selectedIndex].text;
-      document.getElementById('conf-date').textContent = formatDate(date);
+      document.getElementById('conf-date').textContent = formatBookingDate(date);
       document.getElementById('conf-time').textContent = time;
 
-      // Show confirmation, hide form
-      bookingForm.style.display = 'none';
+      // Show confirmation, hide entire booking card (header + form)
+      if (bookingFormCard) {
+        bookingFormCard.style.display = 'none';
+      } else {
+        bookingForm.style.display = 'none';
+      }
       confirmationCard.classList.add('show');
 
       // Scroll to confirmation
@@ -141,20 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Date Formatting Helper ----
-  function formatDate(dateStr) {
-    const months = [
-      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
-      'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
-    ];
-    const parts = dateStr.split('-');
-    const day = parseInt(parts[2], 10);
-    const month = months[parseInt(parts[1], 10) - 1];
-    const year = parts[0];
-    return `${day} de ${month} de ${year}`;
-  }
-
   // ---- Initialize Lucide Icons ----
-  lucide.createIcons();
+  if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
 
 });

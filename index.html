@@ -28,7 +28,7 @@
         <li><a href="reservas.html">Reservas</a></li>
         <li><a href="reservas.html" class="nav-cta">Agendar Cita</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -49,11 +49,11 @@
         <h1 class="hero-title">Estética de <span class="highlight">Precisión</span> para Quienes Exigen Excelencia</h1>
         <p class="hero-subtitle">En AETHERIS fusionamos dermatología clínica avanzada con tecnología de última generación para transformar tu piel y elevar tu imagen personal con resultados visibles desde la primera sesión.</p>
 
-        <form class="diagnosis-form" id="diagnosis-form">
-          <input type="email" placeholder="Tu correo electrónico" required>
+        <form class="diagnosis-form" id="diagnosis-form" novalidate>
+          <input type="email" aria-label="Correo electrónico" placeholder="Tu correo electrónico" required>
           <button type="submit">Diagnóstico Gratis</button>
         </form>
-        <div class="diagnosis-feedback" id="diagnosis-feedback"></div>
+        <div class="diagnosis-feedback" id="diagnosis-feedback" role="status" aria-live="polite"></div>
       </div>
 
       <div class="hero-image-wrapper">
@@ -169,9 +169,9 @@
         <a href="index.html" class="navbar-logo">AETHER<span class="logo-accent">IS</span></a>
         <p class="footer-brand-desc">Centro de estética dermatológica, cuidado facial tecnológico y grooming clínico de lujo en Barranquilla. Resultados visibles, seguridad garantizada.</p>
         <div class="footer-socials">
-          <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
-          <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
-          <a href="#" aria-label="WhatsApp"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+          <a href="reservas.html" aria-label="WhatsApp y citas"><i data-lucide="message-circle" style="width:20px;height:20px;"></i></a>
         </div>
       </div>
 
@@ -202,6 +202,6 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

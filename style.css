@@ -209,6 +209,12 @@ img {
   }
 }
 
+@media (min-width: 769px) {
+  .mobile-menu.open {
+    display: none;
+  }
+}
+
 /* --- Hero Section --- */
 .hero {
   padding: 4rem 1.5rem;
@@ -614,7 +620,7 @@ img {
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 0.7rem 2.5rem 0.7rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: var(--bg-base);
   color: var(--text-primary);
   border: 1px solid var(--border-accent);
@@ -623,11 +629,20 @@ img {
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease;
+}
+
+.form-group select {
+  padding-right: 2.5rem;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%2394A3B8'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
+}
+
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  color-scheme: dark;
 }
 
 .form-group input:focus,
@@ -649,12 +664,31 @@ img {
   .form-row {
     grid-template-columns: 1fr;
   }
+
+  .booking-card,
+  .confirmation-card {
+    padding: 1.25rem;
+  }
+}
+
+.booking-feedback {
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.booking-feedback.error {
+  color: #F87171;
+}
+
+.booking-feedback.success {
+  color: #34D399;
 }
 
 .booking-submit {
   width: 100%;
   padding: 0.85rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 /* --- Confirmation Card --- */
@@ -707,6 +741,8 @@ img {
 .confirmation-details .detail-row {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(30, 58, 138, 0.2);
   font-size: 0.9rem;
@@ -723,6 +759,7 @@ img {
 .confirmation-details .detail-value {
   color: var(--text-primary);
   font-weight: 500;
+  text-align: right;
 }
 
 /* --- Preview Section --- */
